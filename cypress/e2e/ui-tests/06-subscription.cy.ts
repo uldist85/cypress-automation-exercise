@@ -7,7 +7,7 @@ describe('Subscription Test Suite ', () => {
         cy.get('a[href="/login"]').click();
 
         cy.fixture('user').then((userData) => {
-            loginPage.login(userData.email, userData.password);
+            cy.login(userData.email, userData.password);
         });
 
         cy.get('.footer-widget').scrollIntoView();

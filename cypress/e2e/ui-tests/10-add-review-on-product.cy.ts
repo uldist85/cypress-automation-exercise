@@ -6,9 +6,9 @@ describe('Add review on product', () => {
         cy.get('.logo img').should('be.visible');
         cy.get('a[href="/login"]').click();
         cy.fixture('user').then((userData) => {
-            loginPage.login(userData.email, userData.password);
-        }
-        );
+            cy.login(userData.email, userData.password);
+        });
+        
         cy.get(':nth-child(10) > a').should('contain.text', 'Uldis Test');
         cy.get('a[href="/product_details/1"]').click();
         cy.get('.product-information h2').should('have.text', 'Blue Top');

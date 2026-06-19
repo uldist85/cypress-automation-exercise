@@ -12,7 +12,7 @@ describe('User Login Test Suite', () => {
         cy.get('.login-form h2').should('have.text', 'Login to your account');
 
         cy.fixture('user').then((userData) => {
-            loginPage.login(userData.email, userData.password);
+            cy.login(userData.email, userData.password);
         });
 
         cy.get(':nth-child(10) > a').should('contain.text', 'Uldis Test');

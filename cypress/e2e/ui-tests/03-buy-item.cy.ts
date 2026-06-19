@@ -12,7 +12,9 @@ describe('Buy Item Test', () => {
         cy.visit('/');
         cy.get('a[href="/login"]').click();
         cy.get('.login-form h2').should('have.text', 'Login to your account');
-        loginPage.login('testuser_1781674624346@test.com', 'ManaParole123');
+        cy.fixture('user').then((userData) => {
+            cy.login(userData.email, userData.password);
+        });
 
         cy.get('.shop-menu .nav a').contains('Products').click();
         cy.get('.brands-name .nav a').contains('Polo').click();
