@@ -7,11 +7,9 @@ describe('Product Search Test Suite', () => {
 
         const searchKeyword = 'Polo'; // Vārds, kuru meklēsim
 
-        // 2. Šeit ir tavas iepriekšējās darbības (ierakstīt meklētājā un nospiest enter/pogu)
         cy.get('#search_product').type(searchKeyword);
         cy.get('#submit_search').click();
 
-        // 3. Un te mēs izsaucam tavu jauno, jaudīgo pārbaudes funkciju:
         productsPage.verifySearchResultsContain(searchKeyword);
     });
 });
