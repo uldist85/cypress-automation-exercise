@@ -15,9 +15,24 @@ it('API 5: Should successfully search for products by keyword', () => {
         expect(response.status).to.eq(200);
 
         // Mūsu drošības spilvens (string -> objekts)
-        const responseBody = typeof response.body === 'string' 
-            ? JSON.parse(response.body) 
-            : response.body;
+        // const responseBody = typeof response.body === 'string' 
+        //     ? JSON.parse(response.body) 
+        //     : response.body;
+        // ? if
+        // : else
+        // sis ir ternārā operators, kas pārbauda, vai response.body ir string,
+        // // ja jā, tad to pārvērš par JSON objektu, 
+        // //ja nē, tad atstāj kā ir
+        // leja ir veids, kā to var izdarīt ar if-else konstrukciju,
+        // ? kas ir vieglāk saprotama un lasāma
+
+        let responseBody;
+
+        if (typeof response.body === 'string') {
+            responseBody = JSON.parse(response.body);
+        } else {
+            responseBody = response.body;
+        }
 
         // 1. Pārbaudām sistēmas atbildes kodu JSON iekšienē
         expect(responseBody.responseCode).to.eq(200);
@@ -33,7 +48,7 @@ it('API 5: Should successfully search for products by keyword', () => {
         // Pārvēršam produkta nosaukumu uz mazajiem burtiem (lowercase), lai meklēšana nebūtu jutīga pret lielajiem burtiem
         const firstProductName = responseBody.products[0].name.toLowerCase();
         expect(firstProductName).to.include(searchKeyword.toLowerCase());
-        
+
         cy.log('Pirmā atrastā produkta nosaukums: ' + responseBody.products[0].name);
     });
 });
