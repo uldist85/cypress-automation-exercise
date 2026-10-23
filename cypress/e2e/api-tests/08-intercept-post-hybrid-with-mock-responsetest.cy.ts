@@ -26,6 +26,8 @@ describe('login with mock response on ReqRes', () => {
         // 3. Sagaidām pārtverto pieprasījumu
         cy.wait('@loginRequest').then((interception) => {
             expect(interception.response?.statusCode).to.eq(200);
+            expect(interception.response?.body.response.id).to.eq('sia_mock_123');
+            expect(interception.response?.body.response.status).to.eq('needs_first_factor');
         });
     });
 });
