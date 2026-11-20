@@ -1,0 +1,20 @@
+[
+    {
+        "testName": "Successful login with valid credentials",
+        "email": "testuser_1781766657888@test.com",
+        "password": "ManaParole123",
+        "expectedResult": "success"
+    },
+    {
+        "testName": "Login with incorrect email",
+        "email": "testuser_11781674624346@test.com",
+        "password": "ManaParole123",
+        "expectedResult": "error"
+    },
+    {
+        "testName": "Login with incorrect password",
+        "email": "testuser_1781766657888@test.com",
+        "password": "pswssss@1212123123",
+        "expectedResult": "error"
+    }
+]
