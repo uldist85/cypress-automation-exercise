@@ -1,4 +1,4 @@
-import { crawlerHelper } from '../../../support/crawlerHelper';
+import { crawlerHelper } from '../../support/crawlerHelper';
 
 describe('Crawler Test Suite', () => {
 
@@ -13,3 +13,5 @@ describe('Crawler Test Suite', () => {
     });
 
 });
+
+ 
